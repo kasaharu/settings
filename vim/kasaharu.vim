@@ -1,5 +1,10 @@
+"----------------------------------------------------
+" kasaharu.vim (.vimrc) : Vim の設定ファイル
 " Maintainer: Wataru KASAHARA <Wataru.Kasahara@gmail.com>
-" Last Change: 2013 Apr 06
+" Last Change: 2013 Apr 14
+"
+" ファイル名を [.vimrc] に変更し、所定の位置に置くことで使用可
+"----------------------------------------------------
 
 "----------------------------------------------------
 " Visual
@@ -71,14 +76,14 @@ set list
 highlight SpecialKey cterm=NONE ctermfg=7 guifg=7
 highlight JpSpace cterm=underline ctermfg=7 guifg=7
 au BufRead,BufNew * match JpSpace /　/
-" タブ幅
-set softtabstop=2
 "タブの代わりに空白文字を挿入する
 set expandtab
 " タブを表示するときの幅
-set tabstop=2
+set tabstop=4
 " タブを挿入するときの幅
-set shiftwidth=2
+set shiftwidth=4
+" タブ幅
+" set softtabstop=2
 
 
 " ------------------------------------------
