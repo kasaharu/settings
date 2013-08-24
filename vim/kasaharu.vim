@@ -85,6 +85,9 @@ set shiftwidth=4
 " タブ幅
 " set softtabstop=2
 
+set enc=utf-8
+set fenc=utf-8
+set fencs=iso-2022-jp,euc-jp,cp932
 
 " ------------------------------------------
 " GNU Globalの設定
@@ -94,7 +97,7 @@ set shiftwidth=4
 "Ctrl+j カーソル位置の関数へジャンプ
 "Ctrl+n 次の検索結果へジャンプする
 "Ctrl+p 前の検索結果へジャンプする
-noremap <C-t> :Gtags
+noremap <C-g> :Gtags
 noremap <C-r> :Gtags -r
 noremap <C-h> :Gtags -gl<CR>
 noremap <C-i> :Gtags -f %<CR>
