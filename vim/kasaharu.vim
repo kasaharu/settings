@@ -1,7 +1,7 @@
 "----------------------------------------------------
 " kasaharu.vim (.vimrc) : Vim の設定ファイル
 " Maintainer: Wataru KASAHARA <Wataru.Kasahara@gmail.com>
-" Last Change: 2013 Apr 14
+" Last Change: 2014 May 30
 "
 " ファイル名を [.vimrc] に変更し、所定の位置に置くことで使用可
 "----------------------------------------------------
@@ -11,10 +11,6 @@
 "----------------------------------------------------
 " カラー設定:
 colorscheme darkblue
-" 縦幅  デフォルトは24
-set lines=100
-" 横幅  デフォルトは80
-set columns=120
 
 "----------------------------------------------------
 " 表示関係
@@ -63,7 +59,6 @@ set cursorline
 "set smarttab
 " ファイル内の <Tab> が対応する空白の数
 "set tabstop=2
-set expandtab
 " listで表示される文字のフォーマットを指定する
 " --> tab:タブ, trail:行末に続くスペース, 
 set listchars=tab:>.,trail:_,eol:$
@@ -76,15 +71,19 @@ au BufRead,BufNew * match JpSpace /　/
 "タブの代わりに空白文字を挿入する
 set expandtab
 " タブを表示するときの幅
-set tabstop=4
+set tabstop=2
 " タブを挿入するときの幅
-set shiftwidth=4
+set shiftwidth=2
 " タブ幅
 " set softtabstop=2
 
 set enc=utf-8
 set fenc=utf-8
 set fencs=iso-2022-jp,euc-jp,cp932
+
+
+nnoremap <silent> <Esc> :nohlsearch<CR>
+
 
 " ------------------------------------------
 " GNU Globalの設定
@@ -109,7 +108,3 @@ noremap <C-p> :cp<CR>
 
 
 
-
-set enc=utf-8
-set fenc=utf-8
-set fencs=iso-2022-jp,euc-jp,cp932
