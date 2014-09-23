@@ -1,0 +1,7 @@
+[user]
+	name = Wataru.Kasahara
+	email = kasahara1019@gmail.com
+[color]
+	ui = true
+[core]
+	editor = vim
