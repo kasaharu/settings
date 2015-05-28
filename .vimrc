@@ -1,7 +1,7 @@
 "----------------------------------------------------
 " kasaharu.vim (.vimrc) : Vim の設定ファイル
 " Maintainer: Wataru KASAHARA <Wataru.Kasahara@gmail.com>
-" Last Change: 2014 May 30
+" Last Change: 2015 May 29
 "
 " ファイル名を [.vimrc] に変更し、所定の位置に置くことで使用可
 "----------------------------------------------------
@@ -50,6 +50,7 @@ set smartcase
 set smartindent
 " カーソル行に下線
 set cursorline
+set cursorcolumn
 
 
 " --- --- --- --- ---
@@ -82,7 +83,7 @@ set fenc=utf-8
 set fencs=iso-2022-jp,euc-jp,cp932
 
 
-nnoremap <silent> <Esc> :nohlsearch<CR>
+nnoremap <silent> <Esc><Esc> :nohlsearch<CR>
 
 
 " ------------------------------------------
