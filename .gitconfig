@@ -1,20 +1,32 @@
 [user]
-	name = Wataru.Kasahara
+	name  = Wataru.Kasahara
 	email = kasahara1019@gmail.com
 [color]
-	ui = true
-[alias]
-	diffc  = diff --color-words
-	log1   = log --oneline
-	log-g  = log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-	logall = log --format=format:'%C(red)%h %C(yellow)[%ai] %C(blue)<%an> %C(green)%s %C(yellow)(%ar)'
-	# need for installing peco/peco
-	co     = !git checkout $(git branch | peco)
+	ui     = true
+	status = true
 [core]
-	editor = vim
+	editor       = vim
 	excludesfile = ~/.gitignore_global
 [commit]
 	# get https://github.com/kasaharu/scriptForGitHub
 	template = ~/.gh_message_templates/commit.txt
 [push]
 	default = nothing
+[grep]
+	lineNumber = true
+[help]
+	autocorrect = 1
+[merge]
+	ff = false
+[alias]
+	st      = status
+	ss      = status -s
+	diffc   = diff --color-words
+	grep    = grep -n
+	log1    = log --oneline
+	logs    = log --stat --decorate=short --pretty=format:'%C(yellow)%h %Cgreen%cr %Cblue%cn%Cred%d %Creset%s %C(cyan)%b'
+	logall  = log --format=format:'%C(red)%h %C(yellow)[%ai] %C(blue)<%an> %C(green)%s %C(yellow)(%ar)'
+	history = log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	# have need to installing peco/peco
+	co      = !git checkout $(git branch | peco)
+	del     = !git branch -D $(git branch | peco)
