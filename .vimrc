@@ -1,111 +1,117 @@
 "----------------------------------------------------
-" kasaharu.vim (.vimrc) : Vim $B$N@_Dj%U%!%$%k(B
+" kasaharu.vim (.vimrc) : Vim の設定ファイル
 " Maintainer: Wataru KASAHARA <Wataru.Kasahara@gmail.com>
-" Last Change: 2015 May 29
+" Last Change: 2013 Apr 14
 "
-" $B%U%!%$%kL>$r(B [.vimrc] $B$KJQ99$7!"=jDj$N0LCV$KCV$/$3$H$G;HMQ2D(B
+" ファイル名を [.vimrc] に変更し、所定の位置に置くことで使用可
 "----------------------------------------------------
 
 "----------------------------------------------------
 " Visual
 "----------------------------------------------------
-" $B%+%i!<@_Dj(B:
+" カラー設定:
 colorscheme darkblue
 
 "----------------------------------------------------
-" $BI=<(4X78(B
+" 表示関係
 "----------------------------------------------------
-" $B%?%$%H%k$r%&%$%s%I%&OH$KI=<($9$k(B
+" タイトルをウインドウ枠に表示する
 set title
-" $B9THV9f$rI=<($9$k(B
+" 行番号を表示する
 set number
-" $B%?%V$H9TKv$rI=<($9$k(B
+" タブと行末を表示する
 set list
-" $B%k!<%i!<$rI=<((B
+" ルーラーを表示
 set ruler
-" $BF~NOCf$N%3%^%s%I$r%9%F!<%?%9$KI=<($9$k(B
+" 入力中のコマンドをステータスに表示する
 set showcmd
-" $B%9%F!<%?%9%i%$%s$r>o$KI=<((B
+" ステータスラインを常に表示
 set laststatus=2
-" $B3g8LF~NO;~$NBP1~$9$k3g8L$rI=<((B
-"$BJD$83g8L$,F~NO$5$l$?$H$-!"BP1~$9$k3g8L$rI=<($9$k(B
+" 括弧入力時の対応する括弧を表示
+"閉じ括弧が入力されたとき、対応する括弧を表示する
 set showmatch
-" $B%7%s%?%C%/%9%O%$%i%$%H$rM-8z$K$9$k(B
+" シンタックスハイライトを有効にする
 syntax on
-" $B8!:w7k2LJ8;zNs$N%O%$%i%$%H$rM-8z$K$9$k(B
+" 検索結果文字列のハイライトを有効にする
 set hlsearch
-" $B%3%a%s%HJ8$N?'$rJQ99(B
+" コメント文の色を変更
 highlight Comment ctermfg=DarkCyan
-"$B?7$7$$9T$N%$%s%G%s%H$r8=:_9T$HF1$8$K$9$k(B
+"新しい行のインデントを現在行と同じにする
 set autoindent
-"$B%?%V$NBe$o$j$K6uGrJ8;z$rA^F~$9$k(B
+"タブの代わりに空白文字を挿入する
 set expandtab
-"$B%$%s%/%j%a%s%?%k%5!<%A$r9T$&(B
+"インクリメンタルサーチを行う
 set incsearch
-" $B8!:w$N;~$KBgJ8;z>.J8;z$r6hJL$7$J$$(B
+" 検索の時に大文字小文字を区別しない
 set ignorecase
-"$B8!:w;~$KBgJ8;z$r4^$s$G$$$?$iBg(B/$B>.$r6hJL(B
+"検索時に大文字を含んでいたら大/小を区別
 set smartcase
-"$B?7$7$$9T$r:n$C$?$H$-$K9bEY$J<+F0%$%s%G%s%H$r9T$&(B
+"新しい行を作ったときに高度な自動インデントを行う
 set smartindent
-" $B%+!<%=%k9T$K2<@~(B
+" カーソル行に下線
 set cursorline
-set cursorcolumn
 
 
 " --- --- --- --- ---
-" $B%7%U%H0\F0I}(B
+" シフト移動幅
 "set shiftwidth=2
-" $B9TF,$NM>GrFb$G(B Tab $B$rBG$A9~$`$H!"(B'shiftwidth' $B$N?t$@$1%$%s%G%s%H$9$k!#(B
+" 行頭の余白内で Tab を打ち込むと、'shiftwidth' の数だけインデントする。
 "set smarttab
-" $B%U%!%$%kFb$N(B <Tab> $B$,BP1~$9$k6uGr$N?t(B
+" ファイル内の <Tab> が対応する空白の数
 "set tabstop=2
-" list$B$GI=<($5$l$kJ8;z$N%U%)!<%^%C%H$r;XDj$9$k(B
-" --> tab:$B%?%V(B, trail:$B9TKv$KB3$/%9%Z!<%9(B, 
+set expandtab
+" listで表示される文字のフォーマットを指定する
+" --> tab:タブ, trail:行末に続くスペース,
 set listchars=tab:>.,trail:_,eol:$
-" set listchars $B$G;XDj$7$?CV$-49$($r$9$k(B
+" set listchars で指定した置き換えをする
 set list
-" $BA43Q%9%Z!<%9$N;k3P2=(B
+" 全角スペースの視覚化
 highlight SpecialKey cterm=NONE ctermfg=7 guifg=7
 highlight JpSpace cterm=underline ctermfg=7 guifg=7
-au BufRead,BufNew * match JpSpace /$B!!(B/
-"$B%?%V$NBe$o$j$K6uGrJ8;z$rA^F~$9$k(B
+au BufRead,BufNew * match JpSpace /　/
+"タブの代わりに空白文字を挿入する
 set expandtab
-" $B%?%V$rI=<($9$k$H$-$NI}(B
+" タブを表示するときの幅
 set tabstop=2
-" $B%?%V$rA^F~$9$k$H$-$NI}(B
+" タブを挿入するときの幅
 set shiftwidth=2
-" $B%?%VI}(B
+" タブ幅
 " set softtabstop=2
-
-set enc=utf-8
-set fenc=utf-8
-set fencs=iso-2022-jp,euc-jp,cp932
 
 
 nnoremap <silent> <Esc><Esc> :nohlsearch<CR>
 
+"----------------------------------------------------
+" plugin
+"----------------------------------------------------
+" 事前に下記を実行する
+" mkdir -p ~/.vim/bundle
+" git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
 
-" ------------------------------------------
-" GNU Global$B$N@_Dj(B
-"Ctrl+t :Gtags $B$HF~NO$9$k(B
-"Ctrl+h :$B%+!<%=%k2<J8;zNs$G(Bcurrent$B$N%=!<%9%3!<%I$N(B grep
-"Ctrl+i $B3+$$$F$$$k%U%!%$%k$KDj5A$5$l$F$$$k4X?t$N0lMw$rI=<((B
-"Ctrl+j $B%+!<%=%k0LCV$N4X?t$X%8%c%s%W(B
-"Ctrl+n $B<!$N8!:w7k2L$X%8%c%s%W$9$k(B
-"Ctrl+p $BA0$N8!:w7k2L$X%8%c%s%W$9$k(B
-noremap <C-g> :Gtags
-noremap <C-r> :Gtags -r
-noremap <C-h> :Gtags -gl<CR>
-noremap <C-i> :Gtags -f %<CR>
-noremap <C-j> :GtagsCursor<CR>
-noremap <C-n> :cn<CR>
-noremap <C-p> :cp<CR>
-":Gtags $B4X?tL>(B        | $B4X?tL>(B $B"*(B $B%=!<%9%3!<%I!JDj5A!K(B
-":Gtags -r $B4X?tL>(B         | $B4X?tL>(B $B"*(B $B%=!<%9%3!<%I!J;2>H!K(B
-":Gtags -f $B%U%!%$%kL>(B | $B%=!<%9%3!<%I(B $B"*(B $B4X?t0lMw(B
-"global -c $B4X?tL>0lIt(B | $B4X?tL>$N0lIt(B $B"*(B $B4X?t0lMw(B
-":Gtags -g $B8!:wJ8;zNs(B | $B%=!<%9%3!<%I$N(B grep
+filetype off
+if has('vim_starting')
+  if &compatible
+    set nocompatible " Be iMproved
+  endif
 
+  " Required:
+  set runtimepath+=~/.vim/bundle/neobundle.vim
+endif
 
+call neobundle#begin(expand('~/.vim/bundle'))
 
+" Let NeoBundle manage NeoBundle
+" Required:
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+" ここにインストールしたいプラグインのリストを書く:
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/unite-outline'
+NeoBundle 'elixir-lang/vim-elixir'
+
+call neobundle#end()
+
+" Reqiured:
+filetype plugin indent on
+
+NeoBundleCheck
