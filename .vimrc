@@ -1,7 +1,7 @@
 "----------------------------------------------------
 " kasaharu.vim (.vimrc) : Vim の設定ファイル
 " Maintainer: Wataru KASAHARA <Wataru.Kasahara@gmail.com>
-" Last Change: 2013 Apr 14
+" Last Change: 2016 Aug 12
 "
 " ファイル名を [.vimrc] に変更し、所定の位置に置くことで使用可
 "----------------------------------------------------
@@ -37,12 +37,18 @@ set hlsearch   " 検索結果文字列のハイライトを有効にする
 
 " その他
 "----------------------------------------------------
-" 全角スペースの視覚化
-highlight SpecialKey cterm=NONE ctermfg=7 guifg=7
-highlight JpSpace cterm=underline ctermfg=7 guifg=7
-au BufRead,BufNew * match JpSpace /　/
-" コメント文の色を変更
-highlight Comment ctermfg=DarkCyan
+function! ZenkakuSpace()
+  highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=darkgray
+endfunction
+
+if has('syntax')
+  augroup ZenkakuSpace
+    autocmd!
+    autocmd ColorScheme * call ZenkakuSpace()
+    autocmd VimEnter,WinEnter,BufRead * let w:m1=matchadd('ZenkakuSpace', '　')
+  augroup END
+  call ZenkakuSpace()
+endif
 
 nnoremap <silent> <Esc><Esc> :nohlsearch<CR>
 
