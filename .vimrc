@@ -1,7 +1,7 @@
 "----------------------------------------------------
 " kasaharu.vim (.vimrc) : Vim の設定ファイル
 " Maintainer: Wataru KASAHARA <Wataru.Kasahara@gmail.com>
-" Last Change: 2016 Aug 12
+" Last Change: 2016 Aug 31
 "
 " ファイル名を [.vimrc] に変更し、所定の位置に置くことで使用可
 "----------------------------------------------------
@@ -73,9 +73,24 @@ call dein#begin(s:dein_dir)
 call dein#add('Shougo/dein.vim')
 call dein#add('Shougo/neocomplete.vim')
 call dein#add('scrooloose/nerdtree')
+call dein#add('scrooloose/syntastic')
+" call dein#add('plasticboy/vim-markdown')
+" call dein#add('kannokanno/previm')
+" call dein#add('tyru/open-browser.vim')
+" call dein#add('nathanaelkane/vim-indent-guides')
+
+
 call dein#add('tpope/vim-rails')         " Rails 用プラグイン
 call dein#add('tpope/vim-endwise')       " Rails 用プラグイン
 call dein#add('elixir-lang/vim-elixir')  " Elixir 用プラグイン
+" call dein#add('othree/html5.vim')        " HTML5 のシンタックスハイライト
+" call dein#add('othree/yajs.vim')         " ES6 のシンタックスハイライト
+" call dein#add('mxw/vim-jsx')             " HTML5 のシンタックスハイライト
+" call dein#add('pangloss/vim-javascript')
+" call dein#add('othree/javascript-libraries-syntax.vim')
+" call dein#add('othree/es.next.syntax.vim')
+" call dein#add('hail2u/vim-css3-syntax')
+
 
 call dein#end()
 
@@ -84,3 +99,10 @@ if dein#check_install()
 endif
 
 filetype plugin indent on
+
+nnoremap <silent> <C-r> :NERDTreeToggle<CR>
+nnoremap <silent> <C-p> :PrevimOpen<CR>
+
+" Markdown Preview 用
+au BufRead,BufNewFile *.md set filetype=markdown
+
