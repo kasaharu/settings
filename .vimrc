@@ -100,7 +100,7 @@ endif
 
 filetype plugin indent on
 
-nnoremap <silent> <C-r> :NERDTreeToggle<CR>
+nnoremap <silent> <C-t> :NERDTreeToggle<CR>
 nnoremap <silent> <C-p> :PrevimOpen<CR>
 
 " Markdown Preview 用
