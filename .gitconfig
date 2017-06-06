@@ -17,7 +17,7 @@
 [help]
 	autocorrect = 1
 [merge]
-	ff = false
+	ff = true
 [alias]
 	st      = status
 	ss      = status -s
