@@ -1,6 +1,6 @@
 "----------------------------------------------------
 " kasaharu.vim (.vimrc) : Vim の設定ファイル
-" Maintainer: Wataru KASAHARA <Wataru.Kasahara@gmail.com>
+" Maintainer: Wataru KASAHARA
 " Last Change: 2017 June 13
 "
 " ファイル名を [.vimrc] に変更し、所定の位置に置くことで使用可
@@ -26,6 +26,7 @@ set shiftwidth=2                   " インデントに使われる空白の数
 set expandtab                      " タブの代わりに空白文字を挿入する
 set tabstop=2                      " タブを表示するときの幅
 set cursorline                     " カーソル行に下線
+set cursorcolumn                   " カーソル列に線
 set backspace=2                    " 挿入モード時にバックスペースで文字を削除可能にする
 
 " 検索系
