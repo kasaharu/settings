@@ -84,6 +84,7 @@ call dein#add('dhruvasagar/vim-table-mode')             " TableMode
 
 call dein#add('othree/html5.vim')                       " HTML5 のシンタックスハイライト
 call dein#add('leafgarland/typescript-vim')             " TypeScript 用プラグイン
+call dein#add('kchmck/vim-coffee-script')               " CoffeeScript のシンタックスハイライト
 call dein#add('othree/yajs.vim')                        " ES6 のシンタックスハイライト
 call dein#add('maxmellon/vim-jsx-pretty')               " JSX のシンタックスハイライト
 call dein#add('pangloss/vim-javascript')                " JSX のシンタックスハイライト
