@@ -1,7 +1,7 @@
 "----------------------------------------------------
 " kasaharu.vim (.vimrc) : Vim の設定ファイル
 " Maintainer: Wataru KASAHARA
-" Last Change: 2017 June 13
+" Last Change: 2018 Jan. 30
 "
 " ファイル名を [.vimrc] に変更し、所定の位置に置くことで使用可
 "----------------------------------------------------
@@ -82,6 +82,7 @@ call dein#add('tyru/open-browser.vim')                  " browser を開く(主�
 call dein#add('nelstrom/vim-visual-star-search')        " ビジュアルモードでのサーチ強化
 
 call dein#add('othree/html5.vim')                       " HTML5 のシンタックスハイライト
+call dein#add('leafgarland/typescript-vim')             " TypeScript 用プラグイン
 call dein#add('othree/yajs.vim')                        " ES6 のシンタックスハイライト
 call dein#add('maxmellon/vim-jsx-pretty')               " JSX のシンタックスハイライト
 call dein#add('pangloss/vim-javascript')                " JSX のシンタックスハイライト
@@ -121,6 +122,8 @@ let g:vim_jsx_pretty_colorful_config = 1
 " javascript-libraries-syntax.vim
 let g:used_javascript_libs = 'underscore,react,flux'
 
+" TypeScript
+let g:typescript_indent_disable = 1
 
 
 " Setting for neocomplete ------------------------------
