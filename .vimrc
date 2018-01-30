@@ -6,9 +6,6 @@
 " ファイル名を [.vimrc] に変更し、所定の位置に置くことで使用可
 "----------------------------------------------------
 
-colorscheme darkblue " カラー設定:
-syntax on            " シンタックスハイライトを有効にする
-
 " 表示関係
 "----------------------------------------------------
 
@@ -96,6 +93,7 @@ call dein#add('w0rp/ale')                               " ESLint のチェック
 " call dein#add('tpope/vim-endwise')       " Rails 用プラグイン
 " call dein#add('elixir-lang/vim-elixir')  " Elixir 用プラグイン
 
+call dein#add('w0ng/vim-hybrid')           " Color Scheme
 
 call dein#end()
 
@@ -104,6 +102,10 @@ if dein#check_install()
 endif
 
 filetype plugin indent on
+
+set background=dark
+colorscheme hybrid   " カラー設定
+syntax on            " シンタックスハイライトを有効にする
 
 " Short cut key
 " ctl + t でツリー表示
