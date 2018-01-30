@@ -80,6 +80,7 @@ call dein#add('plasticboy/vim-markdown')                " Markdown 記法のシ�
 call dein#add('kannokanno/previm')                      " Markdown ファイルのプレビュー
 call dein#add('tyru/open-browser.vim')                  " browser を開く(主に Markdown のプレビュー)
 call dein#add('nelstrom/vim-visual-star-search')        " ビジュアルモードでのサーチ強化
+call dein#add('dhruvasagar/vim-table-mode')             " TableMode
 
 call dein#add('othree/html5.vim')                       " HTML5 のシンタックスハイライト
 call dein#add('leafgarland/typescript-vim')             " TypeScript 用プラグイン
@@ -108,6 +109,8 @@ filetype plugin indent on
 nnoremap <silent> <C-t> :NERDTreeToggle<CR>
 " ctl + p で Markdown プレビュー表示
 nnoremap <silent> <C-p> :PrevimOpen<CR>
+" ctl + b で Markdown 記法の Table 整形モード
+nnoremap <silent> <C-b> :TableModeToggle<CR>
 
 " Markdown Preview 用
 au BufRead,BufNewFile *.md set filetype=markdown
@@ -125,6 +128,8 @@ let g:used_javascript_libs = 'underscore,react,flux'
 " TypeScript
 let g:typescript_indent_disable = 1
 
+" TableMode
+let g:table_mode_corner='|'
 
 " Setting for neocomplete ------------------------------
 " Disable AutoComplPop.
