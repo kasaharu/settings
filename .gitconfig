@@ -17,7 +17,9 @@
 [help]
 	autocorrect = 1
 [merge]
-	ff = true
+	ff = false
+[pull]
+	ff = only
 [alias]
 	overwrite = push --force-with-lease
 	st        = status
