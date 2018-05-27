@@ -25,6 +25,7 @@ set tabstop=2                      " タブを表示するときの幅
 set cursorline                     " カーソル行に下線
 set cursorcolumn                   " カーソル列に線
 set backspace=2                    " 挿入モード時にバックスペースで文字を削除可能にする
+set encoding=utf-8
 
 " 検索系
 "----------------------------------------------------
