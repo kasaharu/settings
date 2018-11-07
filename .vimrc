@@ -89,6 +89,7 @@ call dein#add('pangloss/vim-javascript')                " JSX のシンタック
 call dein#add('othree/javascript-libraries-syntax.vim') " JavaScript ライブラリシンタックスハイライト
 call dein#add('othree/es.next.syntax.vim')              " stage-0 のシンタックスハイライト
 call dein#add('w0rp/ale')                               " ESLint のチェックツール
+call dein#add('prettier/vim-prettier')                  " Prettier プラグイン
 
 " call dein#add('tpope/vim-rails')         " Rails 用プラグイン
 " call dein#add('tpope/vim-endwise')       " Rails 用プラグイン
@@ -135,3 +136,6 @@ let g:typescript_indent_disable = 1
 " TableMode
 let g:table_mode_corner='|'
 
+let g:prettier#autoformat = 0
+let g:prettier#quickfix_enabled = 0
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue Prettier
