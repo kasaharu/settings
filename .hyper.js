@@ -4,12 +4,14 @@
 
 module.exports = {
   config: {
+    opacity: 0.95,
+
     // choose either `'stable'` for receiving highly polished,
     // or `'canary'` for less polished but more frequent updates
     updateChannel: 'stable',
 
     // default font size in pixels for all tabs
-    fontSize: 10,
+    fontSize: 12,
 
     // font family with optional fallbacks
     fontFamily: 'Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
@@ -19,12 +21,6 @@ module.exports = {
 
     // font weight for bold characters: 'normal' or 'bold'
     fontWeightBold: 'bold',
-
-    // line height as a relative unit
-    lineHeight: 1,
-
-    // letter spacing as a relative unit
-    letterSpacing: 0,
 
     // terminal cursor background color and opacity (hex, rgb, hsl, hsv, hwb or cmyk)
     cursorColor: 'rgba(248,28,229,0.8)',
@@ -67,7 +63,7 @@ module.exports = {
     showWindowControls: '',
 
     // custom padding (CSS format, i.e.: `top right bottom left`)
-    // padding: '12px 14px',
+    padding: '12px',
 
     // the full list. if you're going to provide the full color palette,
     // including the 6 x 6 color cubes and the grayscale map, just provide
@@ -130,38 +126,14 @@ module.exports = {
 
     // for advanced config flags please refer to https://hyper.is/#cfg
 
-    hyperline: {
-      plugins: [
-        'hostname',
-        'ip',
-        'memory',
-        'cpu',
-        'network',
-        'battery',
-      ]
+    hyperStatusLine: {
+      dirtyColor: 'salmon',
+      aheadColor: 'ivory',
     },
 
     hyperBorder: {
       borderColors: ['#fc1da7', '#3621d3', '#4dd220', '#3621d3'],
       borderWidth: '4px'
-    },
-
-    MaterialTheme: {
-      // Set the theme variant,
-      // OPTIONS: 'Darker', 'Palenight', 'Ocean', ''
-      theme: 'Palenight',
-
-      // [Optional] Set the rgba() app background opacity, useful when enableVibrance is true
-      // OPTIONS: From 0.1 to 1
-      backgroundOpacity: '1',
-
-      // [Optional] Set the accent color for the current active tab
-      accentColor: '#64FFDA',
-
-      // [Optional] Mac Only. Need restart. Enable the vibrance and blurred background
-      // OPTIONS: 'dark', 'ultra-dark', 'bright'
-      // NOTE: The backgroundOpacity should be between 0.1 and 0.9 to see the effect.
-      vibrancy: 'dark'
     },
   },
 
@@ -172,14 +144,17 @@ module.exports = {
   //   `@company/project`
   //   `project#1.0.1`
   plugins: [
-    'hyperline',
-    'hypercwd',
-    // 'hyper-statusline',
-    'hyperborder',
+    'hyper-statusline',
+    'hyper-chesterish',
+    'hyperterm-material',
     'hyper-tab-icons-plus',
-    'hyper-search',
-    'hyper-arc-dark-controls',
-    'hyper-material-theme',
+    'hypercwd',
+    'hyperborder',
+    'hyper-opacity',
+    'hyper-tabs-enhanced',
+    // Theme
+    'hyper-night-owl',
+    // 'verminal',
   ],
 
   // in development, you can create a directory under
