@@ -31,5 +31,5 @@
 	logf      = log --format=format:'%C(red)%h %C(yellow)[%ai] %C(blue)<%an> %C(green)%s %C(yellow)(%ar)'
 	history   = log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 	# have need to installing peco/peco
-	co        = !git checkout $(git branch | peco)
+	sw        = !git switch $(git branch | peco)
 	del       = !git branch -D $(git branch | peco)
