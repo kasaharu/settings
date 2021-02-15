@@ -7,6 +7,8 @@
 [core]
 	editor       = vim
 	excludesfile = ~/.gitignore_global
+	# have need to installing https://github.com/dandavison/delta
+	pager  = delta
 [commit]
 	# get https://github.com/kasaharu/scriptForGitHub
 	template = ~/.gh_message_templates/commit.txt
@@ -33,3 +35,13 @@
 	# have need to installing peco/peco
 	sw        = !git switch $(git branch | peco)
 	del       = !git branch -D $(git branch | peco)
+# have need to installing https://github.com/dandavison/delta
+[delta]
+		plus-color   = "#012800"
+		minus-color  = "#340001"
+		minus-style  = red bold ul "#ffeeee"
+		syntax-theme = Monokai Extended
+		line-numbers = true
+		side-by-side = true
+[interactive]
+		diffFilter = delta --color-only
