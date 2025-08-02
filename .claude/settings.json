@@ -1,4 +1,17 @@
 {
+  "permissions": {
+    "allow": [
+      "Bash(npm run lint)",
+      "Bash(npm run test:*)",
+      "Read(~/.config/fish/config.fisH)"
+    ],
+    "deny": [
+      "Bash(sudo:*)",
+      "Bash(rm:*)",
+      "Bash(rm -rf:*)",
+      "Bash(curl:*)"
+    ]
+  },
   "hooks": {
     "Notification": [
       {
@@ -23,18 +36,8 @@
       }
     ]
   },
-  "permissions": {
-    "allow": [
-      "Bash(npm run lint)",
-      "Bash(npm run test:*)",
-      "Read(~/.config/fish/config.fisH)"
-    ],
-    "deny": [
-      "Bash(sudo:*)",
-      "Bash(rm:*)",
-      "Bash(rm -rf:*)",
-      "Bash(curl:*)"
-    ]
+  "feedbackSurveyState": {
+    "lastShownTime": 1754045501649
   },
+  "$schema": "https://json.schemastore.org/claude-code-settings.json"
 }
-
