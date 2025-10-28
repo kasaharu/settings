@@ -1,6 +1,8 @@
 [user]
 	name  = Wataru.Kasahara
 	email = kasahara1019@gmail.com
+	# 1Password を使って署名できるようにする
+	# signingkey =
 [color]
 	ui     = true
 	status = true
@@ -45,3 +47,10 @@
 		side-by-side = true
 [interactive]
 		diffFilter = delta --color-only
+# 1Password を使ったコミット署名の設定
+[gpg]
+	format = ssh
+[gpg "ssh"]
+	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+[commit]
+	gpgsign = true
