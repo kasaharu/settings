@@ -10,10 +10,7 @@
 	editor       = vim
 	excludesfile = ~/.gitignore_global
 	# have need to installing https://github.com/dandavison/delta
-	pager  = delta
-[commit]
-	# get https://github.com/kasaharu/scriptForGitHub
-	template = ~/.gh_message_templates/commit.txt
+  pager  = delta
 [push]
 	default = nothing
 [grep]
@@ -25,10 +22,11 @@
 [pull]
 	ff = only
 [alias]
-	overwrite = push --force-with-lease
+	overwrite = push --force-with-lease --force-if-includes
 	st        = status
 	ss        = status -s
 	diffc     = diff --color-words
+	diffw     = diff --ignore-all-space --ignore-blank-lines
 	grep      = grep -n
 	log1      = log --oneline
 	logs      = log --stat --decorate=short --pretty=format:'%C(yellow)%h %Cgreen%cr %Cblue%cn%Cred%d %Creset%s %C(cyan)%b'
