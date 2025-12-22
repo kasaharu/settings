@@ -1,79 +1,69 @@
-# Don't print a new line at the start of the prompt
-add_newline = false
-
-# Wait 10 milliseconds for starship to check files under the current directory.
-scan_timeout = 10
-
-[battery]
-[[battery.display]]  # バッテリー残量が0％〜30％の間は「太字の赤色」スタイルを利用する
-threshold = 30
-style = "bold red"
-
-[[battery.display]]  # バッテリー残量が30％〜50％の間は「太字の黄色」スタイルを利用する
-threshold = 50
-style = "bold yellow"
-
-[character]
-symbol = "➜"
-error_symbol = "✗"
-use_symbol_for_status = true
-style_success = "#ff69b4"
-
-[cmd_duration]
+format = """
+[░▒▓](#a3aed2)\
+[  ](bg:#a3aed2 fg:#090c0c)\
+[](bg:#769ff0 fg:#a3aed2)\
+$directory\
+[](fg:#769ff0 bg:#394260)\
+$git_branch\
+$git_status\
+[](fg:#394260 bg:#212736)\
+$nodejs\
+$rust\
+$golang\
+$php\
+[](fg:#212736 bg:#1d2230)\
+$time\
+[ ](fg:#1d2230)\
+$cmd_duration\
+\n$character"""
 
 [directory]
-style = "#ba55d3"
-truncation_length = 0
-truncate_to_repo = false
+style = "fg:#e3e5e5 bg:#769ff0"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
 
-[elm]
-
-[env_var]
+[directory.substitutions]
+"Documents" = " "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
 
 [git_branch]
-style = "#dda0dd"
-truncation_length = 10
-
-[git_commit]
-disabled = false
-commit_hash_length = 7
-
-[git_state]
-progress_divider = " of "
+symbol = ""
+style = "bg:#394260"
+format = '[[ $symbol $branch ](fg:#769ff0 bg:#394260)]($style)'
 
 [git_status]
-staged.value = "++"
-staged.style = "green"
-staged_count.enabled = true
-staged_count.style = "green"
-
-[hostname]
-ssh_only = false
-prefix = "⟪"
-suffix = "⟫"
-trim_at = ".companyname.com"
-disabled = true
-
-[jobs]
-symbol = "+ "
-threshold = 4
-
-[line_break]
-
-[memory_usage]
-show_percentage = true
-show_swap = true
-threshold = -1
-symbol = " "
-separator = "/"
-style = "bold dimmed green"
+style = "bg:#394260"
+format = '[[($all_status$ahead_behind )](fg:#769ff0 bg:#394260)]($style)'
 
 [nodejs]
-disabled = false
-
-[ruby]
+symbol = ""
+style = "bg:#212736"
+format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
 
 [rust]
+symbol = ""
+style = "bg:#212736"
+format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
 
-[package]
-disabled = true
+[golang]
+symbol = "ﳑ"
+style = "bg:#212736"
+format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
+
+[php]
+symbol = ""
+style = "bg:#212736"
+format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
+
+[time]
+disabled = false
+time_format = "%R" # Hour:Minute Format
+style = "bg:#1d2230"
+format = '[[  $time ](fg:#a0a9cb bg:#1d2230)]($style)'
+
+[cmd_duration]
+format = '[$duration](bold yellow)'
+
