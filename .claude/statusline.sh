@@ -5,13 +5,6 @@ input=$(cat)
 # Helper functions for common extractions
 get_model_name()          { echo "$input" | jq -r '.model.display_name'; }
 get_current_dir()         { echo "$input" | jq -r '.workspace.current_dir'; }
-get_project_dir()         { echo "$input" | jq -r '.workspace.project_dir'; }
-get_version()             { echo "$input" | jq -r '.version'; }
-get_cost()                { echo "$input" | jq -r '.cost.total_cost_usd'; }
-get_duration()            { echo "$input" | jq -r '.cost.total_duration_ms'; }
-get_lines_added()         { echo "$input" | jq -r '.cost.total_lines_added'; }
-get_lines_removed()       { echo "$input" | jq -r '.cost.total_lines_removed'; }
-get_transcript_path()     { echo "$input" | jq -r '.transcript_path'; }
 
 get_git_branch() {
   git rev-parse &>/dev/null || return
@@ -25,22 +18,18 @@ get_git_branch() {
 }
 
 get_token_count() {
-  local transcript_path=$1
-  if [ -z "$transcript_path" ] || [ ! -f "$transcript_path" ]; then
+  local context_size=$(echo "$input" | jq -r '.context_window.context_window_size // 200000')
+  local usage=$(echo "$input" | jq -r '.context_window.current_usage // empty')
+
+  if [ -z "$usage" ] || [ "$usage" = "null" ]; then
     echo "_ tkns. (_%)"
     return
   fi
 
-  local total_tokens=$(tail -n 100 "$transcript_path" 2>/dev/null | \
-    jq -s 'map(select(.type == "assistant" and .message.usage)) |
-      last | .message.usage |
-      (.input_tokens // 0) + (.output_tokens // 0) +
-      (.cache_creation_input_tokens // 0) + (.cache_read_input_tokens // 0)' 2>/dev/null)
+  local total_tokens=$(echo "$usage" | jq '(.input_tokens // 0) + (.cache_creation_input_tokens // 0) + (.cache_read_input_tokens // 0) + (.output_tokens // 0)')
   total_tokens=${total_tokens:-0}
 
-  # context window size: 200k, compaction threshold: 80% (160k)
-  local threshold=160000
-  local percentage=$((total_tokens * 100 / threshold))
+  local percentage=$((total_tokens * 100 / context_size))
 
   # Format display
   local token_display
@@ -63,9 +52,8 @@ get_token_count() {
 # Use the helpers
 MODEL=$(get_model_name)
 DIR=$(get_current_dir)
-TRANSCRIPT_PATH=$(get_transcript_path)
 GIT_BRANCH=$(get_git_branch)
-TOKEN_COUNT=$(get_token_count "$TRANSCRIPT_PATH")
+TOKEN_COUNT=$(get_token_count)
 
 # https://www.nerdfonts.com/cheat-sheet
 echo "󰚩 ${MODEL} |  ${DIR##*/}${GIT_BRANCH} |  ${TOKEN_COUNT} "
